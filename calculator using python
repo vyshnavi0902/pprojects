@@ -1,0 +1,30 @@
+def add(a,b):
+    return a+b
+def sub(a,b):
+    return a-b
+def mul(a,b):
+    return a*b
+def div(a,b):
+    return a/b
+operations_dict={"+":add,"-":sub,"*":mul,"/":div}
+def calculator():
+    num1=int(input("enter number:"))
+    for x in operations_dict:
+        print(x)
+    cont=True
+    while cont:
+        op=input("pick one operation:")
+        num2=int(input("enter your number"))
+        b=operations_dict[op]
+        result=b(num1,num2)
+        print(f"{num1}{op}{num2}={result}")
+        step=input("enter y to continue calculation with result or enter n to enter a new number or enter x to quit:")
+        if step=="y":
+            num1=result
+        elif step=="n":
+            cont=False
+            calculator()
+        else:
+            cont=False
+            print("End")
+calculator()
